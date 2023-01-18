@@ -1,0 +1,100 @@
+@import'default';
+
+$black: #000;
+$white: #fff;
+$mainBlack: #202020;
+$pink: #eF5DA8;
+$orange: #FF3D00;
+$blue: #0085FF;
+$gray: #808080;
+$lightGray: #E3E3E3;
+
+@mixin font($size){
+    font-family: 'Montserrat', sans-serif;
+    font-weight: $size;
+}
+@mixin button($color){
+    color: $color;
+    border: 1px solid $color;
+@include font(900);
+font-size: 14px;
+text-transform: capitalize;
+padding: 10px 0;
+border-radius: 5px;
+width: 100%;
+transition: 0.4s;
+}
+
+@mixin activeButton($color){
+    @include button($color);
+    color: $white;
+    background-color: $color;
+    cursor: pointer;
+}
+
+.btn{
+    &.orange{
+        @include button ($orange);
+    &:hover{
+        @include activeButton($orange);
+    }
+    }
+    &.blue{
+        @include button($blue);
+        &:hover{
+            @include activeButton($blue);
+    }
+}
+}
+
+p{
+    @include font(400);
+}
+h1,h2,h3{
+    @include font(900);
+}
+h4{
+@include font(700);
+}
+
+body{
+    padding: 0 16px;
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 38px 0;
+        .burger-menu{
+            .line{
+                width: 20px;
+                height: 2px;
+                background-color: $black;
+                margin-bottom: 3px;
+                &:last-child{
+                    margin: 0;
+                }
+            }
+        }
+        h1{
+            text-transform: uppercase;
+            transition: 0.5s;
+            &.active{
+            color: $pink;
+            }
+            &:hover{
+                color: $orange;
+                cursor: pointer;
+            }
+        }
+        nav{
+            svg{
+                &:first-child{
+                    margin-right: 20px;
+                }
+                &:hover{
+                    scale: 1.2;
+                }
+            }
+        }
+        }
+    }
